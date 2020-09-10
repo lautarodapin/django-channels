@@ -25,7 +25,7 @@ SECRET_KEY = '0ox_r^x&45#txlbfp^e-0*b7px-2vu&bz-)v&-66f7_(_w89to'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -125,6 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Channels
 ASGI_APPLICATION = 'ChannelsTest.routing.application'
