@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'admin/js/vendor/jquery/jquery.min.js' %}"></script>
+    {% block extra_head %}
+    {% endblock extra_head %}
+    <title>{{title|default:'Title'}}</title>
+</head>
+
+<body>
+
+    <head>{% block head %}
+        {% endblock head %}
+    </head>
+    <main>{% block content %}
+        {% endblock content %}
+    </main>
+    <footer>{% block footer %}
+        {% endblock footer %}
+    </footer>
+</body>
+
+</html>

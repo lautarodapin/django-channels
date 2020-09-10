@@ -1,0 +1,31 @@
+{% extends "chat/layout.html" %}
+{% load static %}
+
+
+
+
+{% block content %}
+<ul id="usuarios-list"></ul>
+{% endblock content %}
+
+
+{% block footer %}
+<script>
+    const $lista = $('#usuarios-list');
+    const host = window.location.host;
+    
+    $(document).ready(function(){
+        const webSocket = new WebSocket(`ws://${host}/ws/usuarios/`);
+        webSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            console.log(data);
+            $lista.append(data)
+        };
+
+        webSocket.onclose = function(e) {
+            console.error('Chat socket closed unexpectedly');
+        };
+
+    });
+</script>
+{% endblock footer %}
